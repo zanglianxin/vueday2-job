@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        const array1 = [1,2,3,4]
+        //组内求和
+        let arr = [{a:100}, {a: 20}, {a:-10}]
+        let sum = arr.reduce(
+            (s, val) => {
+                return s + val.a
+            },0)
+        console.log(sum);
+
+        //找字母出现的次数
+        let str = 'asasasdasdasdasdasdasadasdad'
+        let arrStr = str.split('')
+        let countObj = arrStr.reduce((pre, cur) => {
+            if(cur in pre){
+                pre[cur] ++
+            }else {
+                pre[cur] = 1
+            }
+            return pre
+        }, {})
+
+        console.log(countObj);
     </script>
 </body>
+
 </html>

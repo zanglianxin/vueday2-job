@@ -12,6 +12,7 @@
 
 
     <script>
+        //方法一：js基础
         let url = 'http://www.baidu.com?name=zhangsan&age=18&sex=nan#'
         let urlObj = {}
         let getUrlKey = (url) => {
@@ -29,6 +30,19 @@
 
         
         console.log(getUrlKey(url));
+
+        //方法二：reduce
+        let proess = (url) => {
+            let index1 = url.indexOf('?')
+            let index2 = url.indexOf('#')
+            let params = url.slice(index1+1, index2).split('&')
+            return params.reduce((pre, cur) =>{
+                let [key, value] = cur.split('=')
+                pre[key] = value
+                return pre
+            },{})
+        }
+        console.log(proess(url));
     </script>
 </body>
 
